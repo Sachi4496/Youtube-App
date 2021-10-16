@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+        integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <title>YouTube</title>
+</head>
+<style>
+    .header {
+        width: 100%;
+        height: 60px;
+        /* background-color: gray; */
+        /* border: 2px solid black; */
+        display: flex;
+    }
+
+    #box1 {
+        width: 15%;
+        display: flex;
+        text-align: center;
+    }
+
+    #box1 li {
+        list-style: none;
+        margin: 15px 15px;
+        font-size: 22px;
+    }
+
+    #box1 i {
+        color: red;
+    }
+
+    #box2 {
+        width: 65%;
+        display: flex;
+        text-align: center;
+    }
+
+    #box2 li {
+        list-style: none;
+        font-size: 22px;
+        margin-top: 5px;
+    }
+
+    #box2 input {
+        width: 550px;
+        height: 35px;
+        margin-left: 200px;
+    }
+
+    #box2 button {
+        height: 40px;
+    }
+
+    #box3 {
+        width: 20%;
+        display: flex;
+    }
+
+    #box3 li {
+        list-style: none;
+        font-size: 22px;
+        margin: 5px 20px;
+        margin-top: 15px;
+    }
+
+    #box3 img {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        margin-top: 8px;
+    }
+
+    .sidebar {
+        width: 100%;
+        display: flex;
+    }
+
+    /* .sidebar div {
+        border: 2px solid red;
+    } */
+
+    #leftBox {
+        width: 17%;
+    }
+
+    #videos {
+        width: 80%;
+        margin-left: 10px;
+    }
+
+    /* #sideMenu1 {
+        display: none;
+    } */
+
+    #sideMenu2 {
+        margin-top: 40px;
+    }
+
+    #sideMenu1 li {
+        list-style: none;
+        margin-top: 18px;
+    }
+
+    #sideMenu2 {
+        width: 50%;
+        display: none;
+    }
+
+    #sideMenu2 div {
+        margin-top: 25px;
+    }
+
+    #sideMenu2 div span {
+        margin-left: 18px;
+    }
+
+    #menuClick {
+        cursor: pointer;
+    }
+
+    #videos {
+        background-color: whitesmoke;
+        display: grid;
+        grid-template-columns: repeat(4, 23%);
+        grid-gap: 2%;
+    }
+
+    .data {
+        width: 100%;
+        height: 100%;
+        display: grid;
+        grid-template-columns: 15% 80%;
+        grid-gap: 30px;
+        /* justify-content: space-between; */
+    }
+
+    #home {
+        cursor: pointer;
+    }
+    #home2 {
+        cursor: pointer;
+    }
+</style>
+
+<body>
+    <div class="header">
+        <div id="box1">
+            <li id="menuClick"><span class="material-icons">menu</span></li>
+            <li style="margin-top: 15px;"><i class="fab fa-youtube"></i><span
+                    style="margin-left: 7px; font-weight: bold; font-style: unset;">YouTube</span></li>
+        </div>
+        <div id="box2">
+            <li><input type="text" id="query" placeholder="Search" /></li>
+            <li><button onclick="searchVideos()"><span class="material-icons">search</span></button></li>
+            <li style="margin-left: 20px; margin-top: 12px; "><i class="fas fa-microphone"></i></li>
+        </div>
+        <div id="box3">
+            <li><i class="fal fa-video-plus"></i></li>
+            <li><i class="fas fa-video"></i></li>
+            <li><i class="fas fa-th"></i></li>
+            <li><i class="far fa-bell"></i></li>
+            <img src="https://yt3.ggpht.com/yti/APfAmoFsTR2Aq59isFP0nmHu_NBpXpn5pzIWHdnQS6cR=s88-c-k-c0x00ffffff-no-rj-mo"
+                alt="">
+        </div>
+    </div>
+    <div class="sidebar">
+        <div id="leftBox">
+            <div id="sideMenu1">
+                <ul>
+                    <li id="home"><span style="position: relative;top: 6px;" class="material-icons">home</span><span
+                            style="margin-left: 18px;">Home</span> </li>
+                    <li><span style="position: relative;top: 6px;" class="material-icons"> explore</span><span
+                            style="margin-left: 18px;">Explore</span></li>
+                    <li><span style="position: relative;top: 6px;" class="material-icons">subscriptions</span><span
+                            style="margin-left: 18px;">Subscription</span></li>
+                    <br>
+                    <hr>
+                    <li><span style="position: relative;top: 6px;" class="material-icons">video_library</span><span
+                            style="margin-left: 18px;">Library</span></li>
+                    <li><span style="position: relative;top: 6px;" class="material-icons">history</span><span
+                            style="margin-left: 18px;">History</span></li>
+                    <li><span style="position: relative;top: 6px;" class="material-icons">smart_display </span><span
+                            style="margin-left: 18px;">Your video</span></li>
+                    <li><span style="position: relative;top: 6px;" class="material-icons"> watch_later </span><span
+                            style="margin-left: 18px;">Watch Late</span></li>
+                    <li><span style="position: relative;top: 6px;" class="material-icons">thumb_up</span><span
+                            style="margin-left: 18px;">Like Videos</span></li>
+                    <li><span style="position: relative;top: 6px;"
+                            class="material-icons">keyboard_arrow_down</span><span style="margin-left: 18px;">Show
+                            more</span></li>
+                    <br>
+                    <hr>
+                    <p>SUBSCRIPTIONS</p>
+                    <li><span style="position: relative;top: 6px;" class="material-icons">image</span><span
+                            style="margin-left: 18px;">Masai School</span></li>
+                    <li><span style="position: relative;top: 6px;" class="material-icons">image</span><span
+                            style="margin-left: 18px;">T-series</span></li>
+                    <li><span style="position: relative;top: 6px;" class="material-icons">image</span><span
+                            style="margin-left: 18px;">Motivational</span></li>
+                    <li><span style="position: relative;top: 6px;" class="material-icons">image</span><span
+                            style="margin-left: 18px;">English Speeches</span></li>
+                    <li><span style="position: relative;top: 6px;" class="material-icons">image</span><span
+                            style="margin-left: 18px;">Bloger</span></li>
+                    <br>
+                    <hr>
+                    <p>MORE FROM YOUTUBE</p>
+                    <li><span style="position: relative;top: 6px;"
+                            class="material-icons">play_circle_outline</span><span style="margin-left: 18px;">YouTube
+                            Premium</span></li>
+                    <li><span style="position: relative;top: 6px;" class="material-icons">theaters</span><span
+                            style="margin-left: 18px;">Flims</span></li>
+                    <li><span style="position: relative;top: 6px;" class="material-icons">sports_esports</span><span
+                            style="margin-left: 18px;">Gaming</span></li>
+                    <li><span style="position: relative;top: 6px;" class="material-icons">live_tv</span><span
+                            style="margin-left: 18px;">Live</span></li>
+                    <li><span style="position: relative;top: 6px;" class="material-icons">lightbulb</span><span
+                            style="margin-left: 18px;">Learning</span></li>
+
+                    <br>
+                    <hr>
+                    <li><span style="position: relative;top: 6px;" class="material-icons">settings</span>
+                        <span style="margin-left: 18px;">Settings</span></li>
+                    <li><span style="position: relative;top: 6px;" class="material-icons">flag</span><span
+                            style="margin-left: 18px;">Report History</span></li>
+                    <li><span style="position: relative;top: 6px;" class="material-icons">help_outline</span><span
+                            style="margin-left: 18px;">Help</span></li>
+                    <li><span style="position: relative;top: 6px;" class="material-icons">announcement</span><span
+                            style="margin-left: 18px;">Send Feedback</span></li>
+                </ul>
+            </div>
+            <div id="sideMenu2">
+                <div id="home2">
+                    <span style="position: relative; left: 9px;" class="material-icons">video_library</span>
+                    <br>
+                    <span>Home</span>
+                </div>
+                <div>
+                    <span style="position: relative; left: 9px;" class="material-icons"> explore</span>
+                    <br>
+                    <span>Explore</span>
+                </div>
+                <div>
+                    <span style="position: relative; left: 9px;" class="material-icons">subscriptions</span>
+                    <br>
+                    <span style="position: relative; right: 11px;">Subscription</span>
+                </div>
+                <div>
+                    <span style="position: relative; left: 9px;" class="material-icons">video_library</span>
+                    <br>
+                    <span>Library</span>
+                </div>
+            </div>
+        </div>
+        <div id="videos"></div>
+    </div>
+</body>
+
+</html>
+
+<script>
+    let menuClick = document.getElementById("menuClick");
+    // sideMenu1
+    console.log(menuClick)
+
+    let sidebar1 = document.getElementById("sideMenu1");
+    let sidebar2 = document.getElementById("sideMenu2");
+
+    let nav = document.getElementById("leftBox");
+    let size = document.getElementById("videos");
+
+    menuClick.addEventListener("click", firstClick);
+
+    var c = 0;
+
+    function firstClick() {
+
+        if (c == 0) {
+            sidebar1.style.display = "none";
+            sidebar2.style.display = "block";
+            nav.style.width = "7%";
+            size.style.width = "90%";
+
+            c++;
+        } else if (c == 1) {
+            sidebar1.style.display = "flex";
+            sidebar2.style.display = "none";
+            nav.style.width = "17%";
+            size.style.width = "80%"
+            c--;
+        }
+
+    }
+
+    //videos 
+    async function searchVideos() {
+
+        let query = document.getElementById("query").value;
+        let res = await fetch(`https://youtube.googleapis.com/youtube/v3/search?q=${query}&type=video&key=AIzaSyANtOeeNUlrnNdVaMfVVL1ZOltvmY5omE4&maxResults=20`);
+
+        let data = await res.json();
+        console.log("data:", data);
+
+        appendVideo(data.items);
+        // query.innerHTML = null;
+    }
+
+    let videos = document.getElementById("videos");
+
+    function appendVideo(video_data) {
+
+        // video_data.innerHTML = null;
+        videos.innerHTML = null;
+
+        video_data.forEach(({ id: { videoId } }) => {
+            // console.log("video",videoId);
+
+            let div = document.createElement("div");
+
+            //embed youtube video
+
+            div.innerHTML = `<iframe width="270" height="200" src="https://www.youtube.com/embed/${videoId}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
+
+            div.style.marginTop = "20px";
+
+            videos.append(div);
+
+        });
+
+    }
+
+    async function mostPopularVideos() {
+
+        let res = await fetch("https://youtube.googleapis.com/youtube/v3/search?q=popular%20video&type=video&key=AIzaSyANtOeeNUlrnNdVaMfVVL1ZOltvmY5omE4&maxResults=20");
+
+        console.log("res:", res);
+        let data = await res.json();
+        console.log("data:", data);
+
+        appendVideo(data.items);
+    }
+    mostPopularVideos();
+
+    let home = document.getElementById("home");
+    home.addEventListener("click", clickHome);
+    function clickHome() {
+        // home.style.backgroundColor ="gray";
+        mostPopularVideos();
+    }
+
+    let home2 = document.getElementById("home2");
+    home2.addEventListener("click", clickHome);
+</script>
